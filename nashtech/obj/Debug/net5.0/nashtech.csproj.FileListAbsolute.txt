@@ -1,0 +1,16 @@
+C:\Users\Tamseel\Desktop\nashtech\bin\Debug\net5.0\nashtech.exe
+C:\Users\Tamseel\Desktop\nashtech\bin\Debug\net5.0\nashtech.deps.json
+C:\Users\Tamseel\Desktop\nashtech\bin\Debug\net5.0\nashtech.runtimeconfig.json
+C:\Users\Tamseel\Desktop\nashtech\bin\Debug\net5.0\nashtech.runtimeconfig.dev.json
+C:\Users\Tamseel\Desktop\nashtech\bin\Debug\net5.0\nashtech.dll
+C:\Users\Tamseel\Desktop\nashtech\bin\Debug\net5.0\ref\nashtech.dll
+C:\Users\Tamseel\Desktop\nashtech\bin\Debug\net5.0\nashtech.pdb
+C:\Users\Tamseel\Desktop\nashtech\obj\Debug\net5.0\nashtech.csprojAssemblyReference.cache
+C:\Users\Tamseel\Desktop\nashtech\obj\Debug\net5.0\nashtech.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Tamseel\Desktop\nashtech\obj\Debug\net5.0\nashtech.AssemblyInfoInputs.cache
+C:\Users\Tamseel\Desktop\nashtech\obj\Debug\net5.0\nashtech.AssemblyInfo.cs
+C:\Users\Tamseel\Desktop\nashtech\obj\Debug\net5.0\nashtech.csproj.CoreCompileInputs.cache
+C:\Users\Tamseel\Desktop\nashtech\obj\Debug\net5.0\nashtech.dll
+C:\Users\Tamseel\Desktop\nashtech\obj\Debug\net5.0\ref\nashtech.dll
+C:\Users\Tamseel\Desktop\nashtech\obj\Debug\net5.0\nashtech.pdb
+C:\Users\Tamseel\Desktop\nashtech\obj\Debug\net5.0\nashtech.genruntimeconfig.cache
