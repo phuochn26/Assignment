@@ -1,14 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace nashtech
 {
     class Program
     {
-        static void Main(string[] args)
-        {
-            List<Member> members = new List<Member>();
-            members.Add(new Member(){
+        static List<Member> members = new List<Member>(){
+            new Member(){
             FirstName = "Phuoc",
             LastName = "Hoang Nhat",
             Gender = "Male",
@@ -16,8 +15,8 @@ namespace nashtech
             PhoneNumber = "",
             BirthPlace = "Hai Phong",
             IsGraduate = false,
-            });
-            members.Add(new Member(){
+            },
+            new Member(){
             FirstName = "Trang",
             LastName = "Nguyen Huyen",
             Gender = "Female",
@@ -25,8 +24,8 @@ namespace nashtech
             PhoneNumber = "",
             BirthPlace = "Hai Duong",
             IsGraduate = false,
-            });
-            members.Add(new Member(){
+            },
+            new Member(){
             FirstName = "Ky",
             LastName = "Nguyen Khac",
             Gender = "Male",
@@ -34,8 +33,8 @@ namespace nashtech
             PhoneNumber = "",
             BirthPlace = "Bac Giang",
             IsGraduate = false,
-            });
-            members.Add(new Member(){
+            },
+            new Member(){
             FirstName = "Dat",
             LastName = "Dam Tuan",
             Gender = "Male",
@@ -43,8 +42,8 @@ namespace nashtech
             PhoneNumber = "",
             BirthPlace = "Ha Noi",
             IsGraduate = false,
-            });
-            members.Add(new Member(){
+            },
+            new Member(){
             FirstName = "Long",
             LastName = "Thang Bao",
             Gender = "Male",
@@ -52,8 +51,8 @@ namespace nashtech
             PhoneNumber = "",
             BirthPlace = "Ha Noi",
             IsGraduate = false,
-            });
-            members.Add(new Member(){
+            },
+            new Member(){
             FirstName = "Van",
             LastName = "Nguyen Cong",
             Gender = "Male",
@@ -61,86 +60,78 @@ namespace nashtech
             PhoneNumber = "",
             BirthPlace = "Ha Noi",
             IsGraduate = false,
-            });
-        
-            //1
-            Console.WriteLine("1");
-            Console.WriteLine("All male member are:");
-            foreach(Member member in members){
-                if(member.Gender == "Male"){
-                    Console.WriteLine(member.LastName + " " + member.FirstName);
-                }
             }
-        
-            //2
-            Console.WriteLine("2");
-            Member oldestMember = members[0];
-
-            foreach(Member member in members){
-                if(oldestMember.Age < member.Age){
-                    oldestMember = member;
-                }
-            }
-
-            Console.WriteLine("The Oldest member is " + oldestMember.LastName + " " + oldestMember.FirstName + "(" + oldestMember.Age + ")" );
-        
-            //3
-            Console.WriteLine("3");
-            List<string> fullNameList = new List<string>();
-
-            foreach(Member member in members){
-                fullNameList.Add(new string (member.LastName + " " + member.FirstName));
-            }
-
-            foreach (string fullName in fullNameList){
-                Console.WriteLine(fullName);
-            }
-
-            //4
-            Console.WriteLine("4");
-
-            List<Member> mem2k = new List<Member>();
-            List<Member> memLessThan2k = new List<Member>();
-            List<Member> memMoreThan2k = new List<Member>();
-            foreach(Member member in members){
-                switch(member.DateOfBirth.Year){
-                    case int a when a == 2000:
-                        mem2k.Add(member);
-                        break;
-                    case int a when a < 2000:
-                        memLessThan2k.Add(member);
-                        break;
-                    case int a when a > 2000:
-                        memMoreThan2k.Add(member);
-                        break;
-                    default:
-                        break;
-                }
-            }
-
-            Console.WriteLine("Members that have birth year equal to 2000:");
-            foreach(Member member in mem2k){
+            };
+        static void PrintList(List<Member> list){
+            foreach(var member in list){
                 Console.WriteLine(member.LastName + " " + member.FirstName);
             }
-            Console.WriteLine("Members that have birth year more than 2000:");
-            foreach(Member member in memMoreThan2k){
-                Console.WriteLine(member.LastName + " " + member.FirstName + "(" + member.DateOfBirth.Year + ")");
+        }
+        static void Print(Member member){
+            Console.WriteLine($"{member.LastName} {member.FirstName} ({member.Age})");
+        }
+        //1
+        static void PrintAllMaleMember(List<Member> list){
+            var results = list.Where(member => member.Gender.Equals("Male")).ToList();
+            PrintList(results);
+        }
+        //2
+        static void PrintOldestMember(List<Member> list){
+            var max = list.Max(Member => Member.Age);
+            var results = list.Where(member => member.Age == max).ToList();
+            var result = results.FirstOrDefault();
+            Console.Write("The oldest member is:");
+            Print(result);
+        }
+        //3
+        static void PrintFullName(List<Member> list){
+            var results = list.Select(member =>{
+                return member.FirstName + " " + member.LastName;
+            }).ToList();
+            foreach(var result in results){
+                Console.WriteLine(result);
             }
-            Console.WriteLine("Members that have birth year less than 2000:");
-            foreach(Member member in memLessThan2k){
-                Console.WriteLine(member.LastName + " " + member.FirstName + "(" + member.DateOfBirth.Year + ")");
-            }
+        }
+        //4
+        static void SplitMemberByBirthYear(List<Member> list, int yearOfBirth){
+            var lessThan = list.Where(member => member.DateOfBirth.Year < yearOfBirth).ToList();
+            var equalTo = list.Where(member => member.DateOfBirth.Year == yearOfBirth).ToList();
+            var moreThan = list.Where(member => member.DateOfBirth.Year > yearOfBirth).ToList();
 
-            //5
-            Console.WriteLine("5");
-            int tmp = 0;
-            while(tmp < members.Count){
-                if(members[tmp].BirthPlace == "Ha Noi"){
-                    Console.WriteLine(members[tmp].FirstName + " " + members[tmp].LastName + " was born in Ha Noi");
-                    tmp = members.Count;
-                }
-                tmp++;
+            Console.WriteLine("Members that have birth year equal to " + yearOfBirth + ":");
+            foreach(Member member in equalTo){
+                Console.WriteLine(member.LastName + " " + member.FirstName);
             }
+            Console.WriteLine("Members that have birth year more than " + yearOfBirth + ":");
+            foreach(Member member in moreThan){
+                Console.WriteLine(member.LastName + " " + member.FirstName + "(" + member.DateOfBirth.Year + ")");
+            }
+            Console.WriteLine("Members that have birth year less than " + yearOfBirth + ":");
+            foreach(Member member in lessThan){
+                Console.WriteLine(member.LastName + " " + member.FirstName + "(" + member.DateOfBirth.Year + ")");
+            }
+        }
+        //5
+        static void PrintTheFirstPersonByBirthPlace(List<Member> list, string place){
+            var results = list.Where(m => m.BirthPlace.Equals(place , StringComparison.OrdinalIgnoreCase)).ToList();
+            var result = results.FirstOrDefault();
+            if (result != null)
+            {
+                Console.Write("The first person who born in " + place + " is:");
+                Print(result);
+            }
+            else
+            {
+                Console.WriteLine("There is no one who born in " + place);
+            }
+        }
+        static void Main(string[] args)
+        {
+            //PrintAllMaleMember(members);
+            //PrintOldestMember(members);
+            //PrintFullName(members);
+            //SplitMemberByBirthYear(members, 2000);
+            PrintTheFirstPersonByBirthPlace(members, "Ha Noi");
         }
     }
 }

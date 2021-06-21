@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Tamseel\\Desktop\\nashtech\\nashtech.csproj",
+      "projectUniqueName": "C:\\Users\\Tamseel\\Documents\\nashtech\\nashtech.csproj",
       "projectName": "nashtech",
-      "projectPath": "C:\\Users\\Tamseel\\Desktop\\nashtech\\nashtech.csproj",
+      "projectPath": "C:\\Users\\Tamseel\\Documents\\nashtech\\nashtech.csproj",
       "packagesPath": "C:\\Users\\Tamseel\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Tamseel\\Desktop\\nashtech\\obj\\",
+      "outputPath": "C:\\Users\\Tamseel\\Documents\\nashtech\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Tamseel\\AppData\\Roaming\\NuGet\\NuGet.Config",
