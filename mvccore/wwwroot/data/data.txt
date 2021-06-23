@@ -1,0 +1,6 @@
+Microsoft.AspNetCore.Http.DefaultHttpRequest
+Request scheme: [https]
+Request host: [localhost:5001]
+Request path: [/]
+Request queryString: []
+Request body: []
