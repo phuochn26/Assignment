@@ -1,0 +1,44 @@
+﻿@model List<Person>
+
+@{
+    ViewData["Title"] = "Rookies";
+}
+
+<div>
+    <h3 class="d-inline-block">Rookies</h3>
+    <a href="@Url.ActionLink("Create","Rookies")" class="btn btn-primary float-right">Create new Rookies</a>
+</div>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Name</th>
+      <th scope="col">Gender</th>
+      <th scope="col">Email</th>
+      <th scope="col">Date of Birth</th>
+      <th scope="col">Age</th>
+      <th class="text-center" scope="col">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+      @{
+        var i = 1;
+        @foreach (var item in Model)
+        {
+            <tr>
+                <th scope="row">@(i++)</th>
+                <td>@item.LastName @item.FirstName</td>
+                <td>@item.Gender</td>
+                <td>@item.Email</td>
+                <td>@item.DateOfBirth.ToString("dd/MM/yyyy")</td>
+                <td>@item.Age</td>
+                <td class="text-center" style="width: 200px;">
+                    <a href="@Url.ActionLink("Edit","Rookies")/@item.Id" class="btn btn-secondary btn-sm" role="button" aria-pressed="true">Edit</a>
+                    <a href="@Url.ActionLink("Delete","Rookies")/@item.Id" class="btn btn-danger btn-sm" role="button" aria-pressed="true">Delete</a>
+                </td>
+            </tr>
+        }
+      }
+    
+  </tbody>
+</table>
