@@ -1,0 +1,8 @@
+@using Microsoft.AspNetCore.Http
+@inject Microsoft.AspNetCore.Http.IHttpContextAccessor HttpContextAccessor
+
+@{
+    ViewData["Title"] = "Detail";
+}
+<h2>Person @HttpContextAccessor.HttpContext.Session.GetString("DELETED_PERSON") was removed from the list successfully! </h2>
+<a href="@Url.ActionLink("Index","Rookies")" class="btn btn-primary">Back to list</a>
