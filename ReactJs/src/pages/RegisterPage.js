@@ -5,7 +5,7 @@ import './css/Login.css'
 const RegisterPage = () => {
     return (
         <div className="center">
-            <h1>Register Form</h1>
+            <h1 style={{ textAlign: 'center' }}>Register Form</h1>
             <Formik
                 initialValues={{ userName: '', email: '', gender: '', password: '', retypePassword: '' }}
                 validate={values => {

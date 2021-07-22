@@ -7,7 +7,7 @@ const LoginPage = ({ currentUser, setCurrentUser }) => {
     console.log("currentUser =", currentUser)
     return (
         <div className="center">
-            <h1>Login Form</h1>
+            <h1 style={{ textAlign: 'center' }} >Login Form</h1>
             <Formik
                 initialValues={{ email: '', password: '' }}
                 validate={values => {
